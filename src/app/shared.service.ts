@@ -18,7 +18,7 @@ export class SharedService {
       .pipe(map((response) => response));
   }
 
-  private createStringParams(obj): HttpParams {
+  private createStringParams(obj: any): HttpParams {
     let params = new HttpParams();
     for (var key in obj) {
       if (obj.hasOwnProperty(key)) {

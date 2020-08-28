@@ -1,6 +1,6 @@
 import { SharedService } from './shared.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private activeRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.router.navigate(['/spacex'], { queryParams: { limit: '100' } });
+    this.activeRoute.queryParams.subscribe((parm) => {
+      if (parm.hasOwnProperty('limit')) {
+        this.router.navigate(['/spacex'], { queryParams: parm });
+      } else
+        this.router.navigate(['/spacex'], { queryParams: { limit: '100' } });
+    });
   }
 }

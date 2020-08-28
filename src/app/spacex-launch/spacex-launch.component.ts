@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
 
@@ -13,7 +13,8 @@ export class SpacexLaunchComponent implements OnInit {
   queryParms: any = {};
   constructor(
     private sharedService: SharedService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private router: Router
   ) {}
   ngOnInit() {
     this.activeRoute.queryParams.subscribe((p) => {
@@ -27,6 +28,6 @@ export class SpacexLaunchComponent implements OnInit {
 
   updateRequest(event: any) {
     this.queryParms = Object.assign({}, this.queryParms, event);
-    this.getData(this.queryParms);
+    this.router.navigate(['/spacex'], { queryParams: this.queryParms });
   }
 }

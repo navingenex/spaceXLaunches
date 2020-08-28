@@ -3,8 +3,8 @@
   grid-template-columns: auto;
   .card {
     background: #fff;
-    margin: 15px;
-    width: 100%;
+    margin: 15px 0px;
+    // width: 100%;
 
     padding: 0px 10px;
     .title {
@@ -40,6 +40,7 @@
     display: grid;
     grid-template-columns: auto auto;
     .card {
+      margin: 0px 15px;
     }
   }
 }
@@ -50,7 +51,7 @@
     .card {
       background: #fff;
       margin: 0px 15px 15px 15px;
-      width: 250px;
+      width: auto;
       img {
         width: 90%;
       }

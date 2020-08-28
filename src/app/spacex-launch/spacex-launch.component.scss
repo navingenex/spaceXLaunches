@@ -1,5 +1,6 @@
 .container {
-  h3 {
+  background: rgb(226, 223, 223);
+  h1 {
     white-space: nowrap;
     padding: 10px !important;
   }
@@ -9,6 +10,7 @@
     justify-content: center;
     .filter {
       // width: 100%;
+      padding: 0px 20px;
     }
     .launches {
       // width: 100%;

@@ -1,21 +1,32 @@
 <div class="card filters">
-  <h5>Filters</h5>
+  <h3>Filters</h3>
   <div class="launchYear">
-    <p class="filterTitle"><u>Launch Year</u></p>
+    <p class="filterTitle">Launch Year</p>
     <div class="years">
-      <div class="year" *ngFor="let year of yearFilters">
-        <p class="box" (click)="filterRequest({launch_year:year})">{{year}}</p>
+      <div class="year" *ngFor="let year of yearFilters;let i=index;">
+        <p class="box" [ngClass]="{'activeBox': isActiveYear && i==selectedIndex}"
+          (click)="setActiveYear(i,year);filterRequest({launch_year:year},i)">
+          {{year}}
+        </p>
       </div>
     </div>
   </div>
-  <p class="filterTitle"><u>Successful Launch</u></p>
+  <p class="filterTitle">Successful Launch</p>
   <div class="launch">
-    <div class="box" (click)="filterRequest({launch_success:true})">True</div>
-    <div class="box" (click)="filterRequest({launch_success:false})">False</div>
+    <div class="box" [ngClass]="{'activeBox': isLaunch}" (click)="filterRequest({launch_success:true});isLaunch=true">
+      True
+    </div>
+    <div class="box" [ngClass]="{'activeBox': isLaunch==false}"
+      (click)="filterRequest({launch_success:false});isLaunch=false">False
+    </div>
   </div>
-  <p class="filterTitle"><u>Successful Landing</u></p>
+  <p class="filterTitle">Successful Landing</p>
   <div class="landing">
-    <div class="box" (click)="filterRequest({land_success:true})">True</div>
-    <div class="box" (click)="filterRequest({land_success:false})">False</div>
+    <div class="box" [ngClass]="{'activeBox': isLand}" (click)="filterRequest({land_success:true});isLand=true">True
+    </div>
+    <div class="box" [ngClass]="{'activeBox': isLand==false}"
+      (click)="filterRequest({land_success:false});isLand=false">
+      False
+    </div>
+    <! /div>
   </div>
-</div>
