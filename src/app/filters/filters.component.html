@@ -1,0 +1,21 @@
+<div class="card filters">
+  <h5>Filters</h5>
+  <div class="launchYear">
+    <p class="filterTitle"><u>Launch Year</u></p>
+    <div class="years">
+      <div class="year" *ngFor="let year of yearFilters">
+        <p class="box">{{year}}</p>
+      </div>
+    </div>
+  </div>
+  <p class="filterTitle"><u>Successful Launch</u></p>
+  <div class="launch">
+    <div class="box">True</div>
+    <div class="box">False</div>
+  </div>
+  <p class="filterTitle"><u>Successful Landing</u></p>
+  <div class="landing">
+    <div class="box">True</div>
+    <div class="box">False</div>
+  </div>
+</div>

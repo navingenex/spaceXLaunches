@@ -1,0 +1,18 @@
+<div class="launchData">
+  <div class="card" *ngFor="let launch of launchData;let i=index">
+    <img [src]="safeUrl(launch?.links?.mission_patch)" [alt]="launch?.misson_name">
+    <p class="title">{{launch?.mission_name +' #' }}{{i+1}}</p>
+    <p class="otherTitle">Mission Ids:</p>
+    <ul *ngIf="launch?.mission_id.length;else none">
+
+      <li *ngFor="let ids of launch?.mission_id"><span>{{ids}}</span></li>
+    </ul>
+    <ng-template #none><span style="color: #9dbdeb;;">N/A</span></ng-template>
+    <p class="otherTitle">Launch Year: <span>{{launch?.launch_year||'NA'}}</span></p>
+    <p class="otherTitle">Successful Launch: <span>{{launch?.launch_success?'Success':'Failed'}}</span></p>
+    <p class="otherTitle">Successful Landing:
+      <span>{{launch?.rocket.first_stage.cores[0].land_success?'Success':launch?.rocket.first_stage.cores[0].land_success==null?'N/A':'Failed'}}</span>
+    </p>
+
+  </div>
+</div>

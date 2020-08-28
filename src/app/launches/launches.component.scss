@@ -1,0 +1,59 @@
+.launchData {
+  display: grid;
+  grid-template-columns: auto;
+  .card {
+    background: #fff;
+    margin: 15px;
+    width: 100%;
+
+    padding: 0px 10px;
+    .title {
+      color: #2678e8;
+      font-weight: bold;
+    }
+    .otherTitle {
+      color: #000;
+      font-weight: bold;
+      span {
+        color: #9dbdeb;
+        font-size: 12px;
+      }
+    }
+    img {
+      width: 85%;
+      display: flex;
+      margin: auto;
+      padding: 0px 10px;
+      margin-top: 10px;
+      background: rgb(226, 223, 223);
+    }
+    .title {
+    }
+    ul {
+      padding-left: 20px;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .launchData {
+    display: grid;
+    grid-template-columns: auto auto;
+    .card {
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .launchData {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    .card {
+      background: #fff;
+      margin: 0px 15px 15px 15px;
+      width: 250px;
+      img {
+        width: 90%;
+      }
+    }
+  }
+}
