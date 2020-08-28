@@ -11,7 +11,12 @@
     "dev:ssr": "ng run spacexData:serve-ssr",
     "serve:ssr": "node dist/spacexData/server/main.js",
     "build:ssr": "ng build --prod && ng run spacexData:server:production",
-    "prerender": "ng run spacexData:prerender"
+    "prerender": "ng run spacexData:prerender",
+    "start:heroku": "node dist/spacexData/server/main.js",
+    "postinstall": "npm run build:ssr"
+  },
+  "engines": {
+    "node": "10.16.0"
   },
   "private": true,
   "dependencies": {
