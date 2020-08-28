@@ -1,5 +1,6 @@
 import { SharedService } from './shared.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'spacexData';
-  data: any = [];
-  constructor(private sharedService: SharedService) {}
+  constructor(private router: Router) {}
+
   ngOnInit() {
-    this.sharedService.getLaunches().subscribe((d) => (this.data = d));
+    this.router.navigate(['/spacex'], { queryParams: { limit: '100' } });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-filters',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filters.component.scss'],
 })
 export class FiltersComponent implements OnInit {
+  @Output('filtered') filtered = new EventEmitter();
+  filterParms: any = {};
   yearFilters = [
     2006,
     2007,
@@ -25,4 +27,8 @@ export class FiltersComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  filterRequest(filter: any) {
+    this.filtered.emit(filter);
+  }
 }

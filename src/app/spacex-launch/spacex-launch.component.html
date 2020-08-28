@@ -1,0 +1,11 @@
+<div class="container">
+  <h3>SpaceX Launch Program</h3>
+  <div class="content">
+    <div class="filter">
+      <app-filters (filtered)="updateRequest($event)"></app-filters>
+    </div>
+    <div class="launches">
+      <app-launches [launchData]="data"></app-launches>
+    </div>
+  </div>
+</div>

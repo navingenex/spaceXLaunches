@@ -1,6 +1,6 @@
 <div class="launchData">
   <div class="card" *ngFor="let launch of launchData;let i=index">
-    <img [src]="safeUrl(launch?.links?.mission_patch)" [alt]="launch?.misson_name">
+    <img *ngIf="launch?.links?.mission_patch" [src]="safeUrl(launch?.links?.mission_patch)" [alt]="launch?.misson_name">
     <p class="title">{{launch?.mission_name +' #' }}{{i+1}}</p>
     <p class="otherTitle">Mission Ids:</p>
     <ul *ngIf="launch?.mission_id.length;else none">
