@@ -9,6 +9,8 @@ import { SpacexLaunchComponent } from './spacex-launch/spacex-launch.component';
 import { FiltersComponent } from './spacex-launch/filters/filters.component';
 import { LaunchesComponent } from './spacex-launch/launches/launches.component';
 import { CommonModule } from '@angular/common';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     HttpClientModule,
     AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent],
