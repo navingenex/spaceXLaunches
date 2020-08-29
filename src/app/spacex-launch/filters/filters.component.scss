@@ -1,8 +1,7 @@
 .filters {
   background: #fff;
   padding: 10px;
-  h5 {
-  }
+
   .filterTitle {
     border-bottom: 2px solid;
     width: fit-content;
@@ -27,6 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
   .activeBox {
     background: #55aa55;

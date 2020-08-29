@@ -5,7 +5,13 @@
       <app-filters (filtered)="updateRequest($event)"></app-filters>
     </div>
     <div class="launches">
-      <app-launches [launchData]="data"></app-launches>
+      <app-launches *ngIf="data.length;else noData" [launchData]="data"></app-launches>
+      <ng-template #noData>
+        <div class="noData">
+          <h1>No launches</h1>
+        </div>
+      </ng-template>
     </div>
   </div>
+
 </div>

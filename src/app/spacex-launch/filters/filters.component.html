@@ -5,7 +5,7 @@
     <div class="years">
       <div class="year" *ngFor="let year of yearFilters;let i=index;">
         <p class="box" [ngClass]="{'activeBox': isActiveYear && i==selectedIndex}"
-          (click)="setActiveYear(i,year);filterRequest({launch_year:year},i)">
+          (click)="filterRequest({launch_year:year},i,year)">
           {{year}}
         </p>
       </div>
@@ -13,20 +13,18 @@
   </div>
   <p class="filterTitle">Successful Launch</p>
   <div class="launch">
-    <div class="box" [ngClass]="{'activeBox': isLaunch}" (click)="filterRequest({launch_success:true});isLaunch=true">
+    <div class="box" [ngClass]="{'activeBox': isLaunch}" (click)="launchFIlter({launch_success:true});">
       True
     </div>
-    <div class="box" [ngClass]="{'activeBox': isLaunch==false}"
-      (click)="filterRequest({launch_success:false});isLaunch=false">False
+    <div class="box" [ngClass]="{'activeBox': isLaunch==false}" (click)="launchFIlter({launch_success:false});">False
     </div>
   </div>
   <p class="filterTitle">Successful Landing</p>
   <div class="landing">
-    <div class="box" [ngClass]="{'activeBox': isLand}" (click)="filterRequest({land_success:true});isLand=true">True
+    <div class="box" [ngClass]="{'activeBox': isLand}" (click)="landFilter({land_success:true})">True
     </div>
-    <div class="box" [ngClass]="{'activeBox': isLand==false}"
-      (click)="filterRequest({land_success:false});isLand=false">
+    <div class="box" [ngClass]="{'activeBox': isLand==false}" (click)="landFilter({land_success:false});">
       False
     </div>
-    <! /div>
+
   </div>

@@ -1,5 +1,7 @@
 .container {
   background: rgb(226, 223, 223);
+  padding: 10px 0px;
+  min-width: 366px;
   h1 {
     white-space: nowrap;
     padding: 10px !important;
@@ -16,6 +18,12 @@
       // width: 100%;
 
       padding: 0px;
+      .noData {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
 }

@@ -4,6 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    component: SpacexLaunchComponent,
+  },
+  {
     path: 'spacex',
     component: SpacexLaunchComponent,
   },
