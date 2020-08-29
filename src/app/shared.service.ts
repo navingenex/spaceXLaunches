@@ -11,14 +11,17 @@ export class SharedService {
   baseUrl = environment.apiUrl;
   constructor(private http: HttpClient) {}
 
-  getLaunches(filter?: string) {
+  getLaunches(filter?: Object) {
     let parms = this.createStringParams(filter);
     return this.http
       .get(this.baseUrl, { params: parms })
       .pipe(map((response) => response));
   }
-
-  private createStringParams(obj: any): HttpParams {
+  /**
+   * converting filter object into queryparams and returning to getLaunched function
+   * @param  {Object} obj
+   */
+  private createStringParams(obj: Object): HttpParams {
     let params = new HttpParams();
     for (var key in obj) {
       if (obj.hasOwnProperty(key)) {

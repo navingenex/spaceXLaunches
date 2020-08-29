@@ -1,6 +1,8 @@
 <div class="launchData" [style.display]="launchData.length>3?'grid':'flex'">
-  <div class="card" *ngFor="let launch of launchData;let i=index" [style.width]="launchData.length<4?'250px':'auto'">
-    <img [src]="safeUrl(launch?.links?.mission_patch_small)" [alt]="'No image'">
+  <div class="card" *ngFor="let launch of launchData;let i=index">
+    <img
+      [src]="launch?.links?.mission_patch_small?safeUrl(launch?.links?.mission_patch_small): '../../../assets/dummy.png'"
+      [alt]="'No image'">
     <p class="title">{{launch?.mission_name +' #' }}{{i+1}}</p>
     <p class="otherTitle">Mission Ids:</p>
     <ul *ngIf="launch?.mission_id.length;else none">

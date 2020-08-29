@@ -22,11 +22,19 @@ export class SpacexLaunchComponent implements OnInit {
       this.getData(p);
     });
   }
-  getData(parms) {
+  /**
+   * passing recieved filters from url and calling spaceX api
+   * @param  {Object} parms
+   *
+   */
+  getData(parms: Object) {
     this.sharedService.getLaunches(parms).subscribe((d) => (this.data = d));
   }
-
-  updateRequest(event: any) {
+  /**
+   * recieving event from FilterComponent and navigating to same route with updated queryparams
+   * @param  {Object} event
+   */
+  updateRequest(event: Object) {
     this.queryParms = Object.assign({}, this.queryParms, event);
     this.router.navigate(['/spacex'], { queryParams: this.queryParms });
   }

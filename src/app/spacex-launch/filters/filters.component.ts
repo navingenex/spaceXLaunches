@@ -34,11 +34,16 @@ export class FiltersComponent implements OnInit {
 
   ngOnInit() {
     this.activeRote.queryParams.subscribe((param) => {
+      //resetting filter from url
       this.resetFilter(param);
     });
   }
 
-  // resetting filter from url after refreshing page
+  /**
+   * resetting filter ui elements from url after refreshing page
+   * @param  {Object} param
+   * @returns false
+   */
   resetFilter(param: Object) {
     for (const key in param) {
       switch (key) {
@@ -56,7 +61,12 @@ export class FiltersComponent implements OnInit {
     }
   }
 
-  //toggle functionality for filter
+  /**
+   * toggle functionality for filter
+   * @param  {any} filter filter object
+   * @param  {number} index? optional index of selected year
+   * @param  {string} year? optional year for selected year
+   */
   filterRequest(filter: any, index?: number, year?: string) {
     const key = Object.keys(filter)[0];
     if (this.activeYear && this.activeYear == year) {
@@ -71,7 +81,12 @@ export class FiltersComponent implements OnInit {
     }
   }
 
-  //launch filtur with toggle mimic
+  /**
+   * @param  {Object} filter
+   * land filter with toggle mimic
+   * launch filtur with toggle mimic
+   */
+
   launchFIlter(filter: Object) {
     const key = Object.keys(filter)[0];
     this.isLaunch && filter[key]
@@ -84,7 +99,10 @@ export class FiltersComponent implements OnInit {
         this.filtered.emit({ launch_success: filter[key] }));
   }
 
-  //land filter with toggle mimic
+  /**
+   * @param  {Object} filter
+   * land filter with toggle mimic
+   */
   landFilter(filter: Object) {
     const key = Object.keys(filter)[0];
     this.isLand && filter[key]
@@ -94,9 +112,9 @@ export class FiltersComponent implements OnInit {
       : ((this.isLand = filter[key]),
         this.filtered.emit({ land_success: filter[key] }));
   }
-  setActiveYear(index: number, year: string) {
-    this.activeYear = year;
-    this.selectedIndex = index;
-    this.isActiveYear = this.selectedIndex == index;
-  }
+  // setActiveYear(index: number, year: string) {
+  //   this.activeYear = year;
+  //   this.selectedIndex = index;
+  //   this.isActiveYear = this.selectedIndex == index;
+  // }
 }

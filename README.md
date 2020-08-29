@@ -12,16 +12,31 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run build:ssr` to build the project. The build artifacts will be stored in the `dist/spacexData` directory. Use the flag.
+Project is hosted on Heroku and for every push on master branch will be deployed to Heroku.
 
-## Running unit tests
+## Stacks used
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[Angular 9.1.3](https://github.com/angular/angular-cli)
 
-## Running end-to-end tests
+[Angular Universal boilarplate](https://angular.io/guide/universal) for Server side rendering.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Plain css (No frameworks)
 
-## Further help
+## Approach
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Flexbox and grid system is used for ui responsiveness.
+
+Mobile first approach is used for ui design as ased in assignment.
+
+[SpacexLaunch](https://github.com/navingenex/spaceXLaunches/blob/master/src/app/spacex-launch/spacex-launch.component.ts) for main component. [Filter component](https://github.com/navingenex/spaceXLaunches/blob/master/src/app/spacex-launch/filters/filters.component.ts) component is used for filter the launch data and [Launchs](https://github.com/navingenex/spaceXLaunches/blob/master/src/app/spacex-launch/launches/launches.component.ts) component is used for display the data.
+
+Every time user request any filter then it will pass to the [parent component](https://github.com/navingenex/spaceXLaunches/blob/master/src/app/spacex-launch/spacex-launch.component.ts), where the request is made.
+
+Activated Route class used for intercepting the query params on simple filter request and page refresh.
+
+To display active filters on page refresh landFilter and launchFilter functions is used.
+
+## Live Project link
+
+[SpaceX Launches](https://spacex-launchestest.herokuapp.com/);
